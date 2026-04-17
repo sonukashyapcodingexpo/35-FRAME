@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>35 Frames Photography - Bangalore (Static HTML Copy)</title>
+    <meta
+      name="description"
+      content="35 Frames Photography is a professional photography studio in Bangalore, Karnataka. We offer portrait, landscape, event, and commercial photography."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <meta property="og:image" content="./assets/og-image.png" />
+    <style>
+      /* Prevent first-paint flash before Tailwind initializes */
+      #loadingOverlay {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP + plugins (SRI must match CDN file bytes or the script is skipped) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+      integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"
+      integrity="sha512-kz526itdNcpyMs18TLPOhsnIeOIO1JywWKbbF77zR+ZKpZ4gwubXhwaURHpt5Se9AAqSK2j8ID0LnfXsB2Jkjg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17648713009"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17648713009');
+      // events (same placeholders as original)
+      gtag('event', 'ads_conversion_About_Us_1', {});
+      gtag('event', 'ads_conversion_Contact_Us_1', {});
+    </script>
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="antialiased bg-white text-gray-900">
+    <!-- Loading overlay (1.5s) -->
+    <div id="loadingOverlay" class="fixed inset-0 z-[60] flex items-center justify-center bg-black">
+      <div class="flex flex-col items-center space-y-6">
+          <img
+            src="./assets/logo.png"
+          alt="35 Frames Photography"
+          width="200"
+          height="50"
+          class="h-12 w-auto invert"
+        />
+        <div class="relative w-12 h-12">
+          <div class="absolute inset-0 border-4 border-gray-700 rounded-full"></div>
+          <div class="absolute inset-0 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        </div>
+        <p class="text-white text-sm">Loading...</p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header
+      id="siteHeader"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style="background-color: rgba(255,255,255,0); backdrop-filter: blur(0px);"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-24 lg:h-28">
+          <div class="flex-shrink-0" id="headerLogoWrap">
+            <a href="#home" id="logoLink" class="inline-block">
+              <img
+                src="./assets/logo.png"
+                alt="35 Frames Photography"
+                width="520"
+                height="130"
+                class="h-14 lg:h-18 w-auto transition-transform duration-300 hover:scale-105"
+                style="filter: invert(1) drop-shadow(0 1px 1.5px rgba(0,0,0,0.3));"
+              />
+            </a>
+          </div>
+
+          <div class="hidden lg:block">
+            <button
+              id="getQuoteBtn"
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2.5 rounded-full font-medium shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden"
+            >
+              <span class="relative z-10">Get Quote</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="pageRoot" class="transition-opacity duration-500 opacity-0">
+      <!-- Hero -->
+      <section id="home" class="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-24 md:pb-12 lg:pt-28 lg:pb-16 bg-[#f8fafc] overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 md:px-8" id="heroContainer">
+          <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 sm:gap-8 md:gap-12">
+            <div class="w-full lg:w-[45%] max-w-2xl order-1" id="heroText">
+              <div class="inline-block bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 blue-badge">
+                35 Frames Photography - Bangalore
+              </div>
+              <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-1 sm:mb-2 leading-tight">
+                Turning <span class="text-amber-500">Moments</span>
+              </h1>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-amber-500 mb-1 sm:mb-2 leading-tight">
+                Into Masterpieces
+              </h2>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                Frame by Frame
+              </h2>
+              <p class="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 max-w-xl">
+                Your Story, Beautifully Captured &amp; Perfectly Designed. At 35 Frames Photography, we offer you a sweet ride to your Wedding Day with professional photography and videography services in Bangalore.
+              </p>
+
+              <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8" id="heroStats">
+                <div class="stat-item bg-white p-2 sm:p-4 rounded-lg shadow-sm">
+                  <p class="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">21+</p>
+                  <p class="text-[10px] sm:text-xs md:text-sm text-gray-600">Years Experience</p>
+                </div>
+                <div class="stat-item bg-white p-2 sm:p-4 rounded-lg shadow-sm">
+                  <p class="text-xl sm:text-2xl md:text-3xl font-bold text-green-500">1500+</p>
+                  <p class="text-[10px] sm:text-xs md:text-sm text-gray-600">Weddings Covered</p>
+                </div>
+                <div class="stat-item bg-white p-2 sm:p-4 rounded-lg shadow-sm">
+                  <p class="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">5.0/5</p>
+                  <p class="text-[10px] sm:text-xs md:text-sm text-gray-600">Client Rating</p>
+                </div>
+              </div>
+
+              <div class="hidden sm:block mt-8">
+                <a
+                  id="heroCtaDesktop"
+                  href="#contact"
+                  class="bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-8 rounded-full transition-all shadow-md inline-block"
+                >
+                  Book a Photography Session
+                </a>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-[55%] relative order-2 mb-6 lg:mb-0" id="heroImage">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden shadow-lg" id="heroSlides">
+                <!-- Slides injected by app.js -->
+              </div>
+            </div>
+          </div>
+
+          <div class="max-w-2xl mx-auto mt-6 sm:mt-8 bg-amber-50 border border-amber-200 rounded-lg p-3 sm:p-4 flex items-start gap-2 sm:gap-3">
+            <div class="bg-amber-500 text-white p-1 rounded-full flex-shrink-0">
+              <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-xs sm:text-sm text-amber-800 mb-1">100% Satisfaction Guarantee</p>
+              <p class="text-[10px] sm:text-sm text-amber-700">
+                We're committed to your complete satisfaction. If you're not happy with your photos, we'll reshoot at no additional cost. Contact us at info@bangalorephotostudio.com
+              </p>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-6 mb-8 sm:hidden">
+            <a href="#contact" class="mobile-animate bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-8 rounded-full transition-all shadow-md">
+              Book a Photography Session
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 mb-12">
+          <h2 class="gallery-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
+            Our Professional photoshoots
+          </h2>
+          <p class="text-center text-gray-600 mb-8">
+            Browse our gallery professional photoshoots
+          </p>
+        </div>
+
+        <div class="container mx-auto px-4">
+          <div
+            id="galleryGrid"
+            class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          ></div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="py-12 md:py-16 bg-gray-50 opacity-0" data-animate="services-section">
+        <div class="container mx-auto px-4 sm:px-6 md:px-8">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 opacity-0" data-animate="services-title">
+            Our Photography Services
+          </h2>
+
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8 max-w-6xl mx-auto">
+            <div class="flex flex-col items-center text-center md:w-1/3 md:px-4 opacity-0" data-animate="services-step">
+              <div class="bg-blue-100 p-5 rounded-full mb-4">
+                <svg class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Wedding Photography</h3>
+              <p class="text-gray-600">
+                Complete wedding coverage including traditional photography, candid shots, cinematography, and drone footage. We capture every ritual and emotion of your special day.
+              </p>
+            </div>
+
+            <div class="hidden md:flex items-center justify-center md:mt-16 opacity-0" data-animate="services-arrow">
+              <svg class="h-8 w-8 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </div>
+
+            <div class="flex flex-col items-center text-center md:w-1/3 md:px-4 opacity-0" data-animate="services-step">
+              <div class="bg-amber-100 p-5 rounded-full mb-4">
+                <svg class="h-10 w-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Pre-Wedding &amp; Engagement</h3>
+              <p class="text-gray-600">
+                Beautiful pre-wedding shoots and engagement photography sessions. Complimentary sessions included with wedding packages in Bangalore.
+              </p>
+            </div>
+
+            <div class="hidden md:flex items-center justify-center md:mt-16 opacity-0" data-animate="services-arrow">
+              <svg class="h-8 w-8 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </div>
+
+            <div class="flex flex-col items-center text-center md:w-1/3 md:px-4 opacity-0" data-animate="services-step">
+              <div class="bg-green-100 p-5 rounded-full mb-4">
+                <svg class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Events, Family &amp; Kids</h3>
+              <p class="text-gray-600">
+                Corporate events, family portraits, maternity shoots, and fashion photography. Professional service for all your photography needs.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <p class="text-gray-700 max-w-2xl mx-auto mb-6">
+              With 21+ years of experience and 1500+ weddings covered, we provide comprehensive photography and videography services across Bangalore. From traditional to candid, we capture your story beautifully.
+            </p>
+            <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-8 rounded-full transition-all shadow-md">
+              Book Your Photography Session
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Offer -->
+      <section id="offer" class="py-10 sm:py-14 bg-gradient-to-br from-amber-50 via-white to-amber-100">
+        <div class="container mx-auto px-4 sm:px-6 md:px-8">
+          <div id="offerContent" class="relative overflow-hidden rounded-2xl shadow-xl bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 opacity-0">
+            <div class="absolute inset-0 opacity-20 mix-blend-overlay">
+              <div class="radial-sheen w-full h-full"></div>
+            </div>
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 p-6 sm:p-8">
+              <div class="text-white max-w-2xl">
+                <div class="offer-tag inline-block bg-white/20 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3">
+                  Limited Time Offer
+                </div>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                  Get 10% Off on All Photography Packages
+                </h3>
+                <p class="mt-2 text-sm sm:text-base text-white/90">
+                  Book now to lock in your discount for weddings, events, portraits, and more.
+                </p>
+              </div>
+              <div class="flex-shrink-0">
+                <a
+                  href="https://wa.me/919900491382?text=Hi%21%20I%20want%20to%20claim%2010%25%20off%20on%20photography%20packages."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-white text-amber-600 hover:bg-amber-50 font-semibold py-3 px-6 rounded-full shadow-md transition-colors"
+                >
+                  Claim 10% Off
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start" id="contactSection">
+            <div class="space-y-8">
+              <div>
+                <h2 id="contactTitle" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight min-h-[120px]"></h2>
+                <p id="contactSubtitle" class="text-lg text-gray-600 leading-relaxed min-h-[80px]"></p>
+              </div>
+
+              <div class="space-y-6">
+                <div class="form-field flex items-center space-x-4 opacity-0">
+                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21L6.16 10.928c-.732.732-.732 1.919 0 2.651l.106.106c.732.732 1.919.732 2.651 0L12.072 10.84a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V16a2 2 0 01-2 2h-1C9.716 18 2 10.284 2 4V3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Phone</p>
+                    <p class="text-gray-600">+91 9900491382</p>
+                  </div>
+                </div>
+
+                <div class="form-field flex items-center space-x-4 opacity-0">
+                  <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Email</p>
+                    <p class="text-gray-600">info@35framesphotography.com</p>
+                  </div>
+                </div>
+
+                <div class="form-field flex items-center space-x-4 opacity-0">
+                  <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Location</p>
+                    <p class="text-gray-600">Bangalore, Karnataka</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form id="contactForm" class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+              <fieldset class="form-field opacity-0">
+                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interested In *</label>
+                <select
+                  id="service"
+                  name="service"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                >
+                  <option value="">Select a service</option>
+                  <option value="wedding">Wedding Photography</option>
+                  <option value="pre-wedding">Pre-Wedding Shoots</option>
+                  <option value="engagement">Engagement Photography</option>
+                  <option value="event">Event Photography</option>
+                  <option value="portrait">Portrait Sessions</option>
+                  <option value="cinematography">Cinematography</option>
+                  <option value="other">Other</option>
+                </select>
+              </fieldset>
+
+              <fieldset class="form-field opacity-0">
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  type="text"
+                  placeholder="Enter your full name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                />
+              </fieldset>
+
+              <fieldset class="form-field opacity-0">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                <input
+                  id="email"
+                  name="email"
+                  required
+                  type="email"
+                  placeholder="Enter your email address"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                />
+              </fieldset>
+
+              <fieldset class="form-field opacity-0">
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                />
+              </fieldset>
+
+              <fieldset class="form-field opacity-0">
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="4"
+                  placeholder="Tell us about your photography needs..."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none bg-white"
+                ></textarea>
+              </fieldset>
+
+              <button
+                id="submitBtn"
+                type="submit"
+                class="submit-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-6 rounded-lg shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                <span class="submit-label">Send Message</span>
+                <span class="submit-loading hidden">
+                  <span class="inline-flex items-center justify-center space-x-2">
+                    <span class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span>
+                    <span>Sending...</span>
+                  </span>
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="py-16 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 mb-12">
+          <h2 class="testimonials-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3 opacity-0">
+            What Our Clients Are Saying
+          </h2>
+          <p class="testimonials-subtitle text-center text-gray-600 mb-8 opacity-0">
+            Real experiences from our satisfied clients across Bangalore. Trusted by 1500+ couples and families.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div id="testimonialsScroller" class="flex space-x-6 px-4 pb-4" style="width: max-content;"></div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="siteFooter" class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden opacity-0">
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute inset-0 footer-dots"></div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+              <div class="lg:col-span-1 opacity-0" data-animate="footer-section">
+                <div class="mb-6 opacity-0" data-animate="footer-logo">
+                  <img
+                    src="./assets/logo.png"
+                    alt="35 Frames Photography"
+                    width="160"
+                    height="40"
+                    class="h-10 w-auto invert"
+                  />
+                </div>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                  Capturing life's precious moments with artistic vision and professional excellence. Creating timeless memories that last forever.
+                </p>
+                <div class="flex space-x-4">
+                  <a
+                    class="social-link w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300 opacity-0 scale-0"
+                    href="https://instagram.com/35framesphotography"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.05-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                  </a>
+                  <a
+                    class="social-link w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300 opacity-0 scale-0"
+                    href="https://facebook.com/35framesphotography"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                    </svg>
+                  </a>
+                  <a
+                    class="social-link w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300 opacity-0 scale-0"
+                    href="https://wa.me/919845012345"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-1 opacity-0" data-animate="footer-section"></div>
+              <div class="lg:col-span-1 opacity-0" data-animate="footer-section"></div>
+
+              <div class="lg:col-span-1 opacity-0" data-animate="footer-section">
+                <div class="space-y-4">
+                  <div class="flex items-start space-x-3 opacity-0" data-animate="footer-contact">
+                    <svg class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div>
+                      <p class="text-gray-300">Bangalore, Karnataka</p>
+                      <p class="text-gray-400 text-sm">India</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3 opacity-0" data-animate="footer-contact">
+                    <svg class="w-5 h-5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    <p class="text-gray-300">+91 9900491382</p>
+                  </div>
+                  <div class="flex items-center space-x-3 opacity-0" data-animate="footer-contact">
+                    <svg class="w-5 h-5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <p class="text-gray-300">info@35framesphotography.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-700">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-gray-400 text-sm">© 2025 35 Frames Photography. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm">
+                  <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Privacy Policy</a>
+                  <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Terms of Service</a>
+                  <button id="footerContactBtn" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Contact</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Background audio + fixed buttons (merged behaviors) -->
+    <audio id="bgAudio" src="./assets/vioceOver.mp3" playsinline preload="auto"></audio>
+
+    <div id="audioUnlockOverlay" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/40 md:hidden">
+      <button
+        id="audioUnlockBtn"
+        class="px-4 py-2 rounded-full text-sm font-medium shadow-md bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+      >
+        Tap to enable sound
+      </button>
+    </div>
+
+    <div class="fixed bottom-4 right-4 z-[80] flex flex-col items-end gap-3">
+      <button
+        id="audioToggleBtn"
+        class="w-11 h-11 rounded-full flex items-center justify-center shadow-md bg-gray-900/85 text-white hover:bg-gray-800 transition-colors"
+        aria-label="Toggle background audio"
+      >
+        <svg id="audioIconMuted" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 10v4h4l5 4V6l-5 4H3z" />
+          <path d="M18 9l-6 6M12 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+        </svg>
+        <svg id="audioIconOn" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 10v4h4l5 4V6l-5 4H3z" />
+          <path d="M16 8a5 5 0 010 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <a
+        href="https://www.instagram.com/storiesby35frames/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-11 h-11 rounded-full flex items-center justify-center shadow-md bg-pink-600 text-white hover:bg-pink-700 transition-colors"
+        aria-label="Open Instagram"
+      >
+        <img src="./assets/instagram.svg" alt="Instagram" width="20" height="20" class="w-5 h-5" />
+      </a>
+
+      <a
+        href="https://wa.me/919900491382"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-11 h-11 rounded-full flex items-center justify-center shadow-md bg-green-600 text-white hover:bg-green-700 transition-colors"
+        aria-label="Chat on WhatsApp"
+      >
+        <img src="./assets/whatsapp.svg" alt="WhatsApp" width="20" height="20" class="w-5 h-5" />
+      </a>
+
+      <a
+        href="tel:+916305800108"
+        class="w-11 h-11 rounded-full flex items-center justify-center shadow-md bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+        aria-label="Call phone"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.6 10.79a15.05 15.05 0 006.61 6.61l2.2-2.2a1 1 0 011.06-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.5a1 1 0 01-1 1A18.5 18.5 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.06l-2.23 2.17z" />
+        </svg>
+      </a>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
